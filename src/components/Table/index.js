@@ -8,6 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import API from '../../utils/API';
+import Filter from '../Filter';
 
 const useStyles = makeStyles({
   table: {
@@ -19,8 +20,11 @@ const useStyles = makeStyles({
 export default function BasicTable() {
   const classes = useStyles();
 
+//hooks
   const [ users,setUsers ] = useState([]);
+  const [ userEntry,setUserEntry ] = useState('');
 
+//get employee data & add to array
   useEffect(() => {
     const getUsers = async () => {
       try {
@@ -34,7 +38,16 @@ export default function BasicTable() {
     console.log(users)
   }, [])
 
+  function search() {
+    const filteredList = users.filter(user => {
+      return user.location.city.includes(userEntry);
+    })
+    console.log(filteredList)
+  }
+
   return (
+    <>
+    <Filter setUserEntry={setUserEntry} search={search}/>
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
@@ -49,8 +62,7 @@ export default function BasicTable() {
         <TableBody>
           {users.map((user) => (
             <TableRow key={user.email}>
-             {/* <TableCell align="right"><img src={require({user.picture.thumbnail})} /></TableCell>   */}
-              <TableCell>{user.picture.thumbnail}</TableCell>
+             <TableCell align="right"><img src={user.picture.thumbnail} /></TableCell>  
               <TableCell align="right">{user.name.first} {user.name.last}</TableCell>
               <TableCell align="right">{user.email}</TableCell>
               <TableCell align="right">{user.phone}</TableCell>
@@ -60,5 +72,6 @@ export default function BasicTable() {
         </TableBody>
       </Table>
     </TableContainer>
+    </>
   );
 }
