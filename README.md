@@ -1,9 +1,9 @@
 # employee-directory
 
-##Installation
+## Installation
 ```npm i``` to install all dependencies. 
 
-##Technologies Used
+## Technologies Used
 This app leverages ```react```, ```materialui```, and ```axios```. It calls ```randomuser.me/api``` to get a list of 10 random users & attributes such as a thumbnail image, user name, email, phone, and city. The user data is rendered in a React Component from ```MaterialUI```. The table can be filtered by City by entering a value in the text file, which is also a MaterialUI component.
 
 <img src="assets/employee-list.png" alt="employee table screen shot">
@@ -12,10 +12,10 @@ This app leverages ```react```, ```materialui```, and ```axios```. It calls ```r
 
 
 
-##Deployed Application
+## Deployed Application
 https://morning-earth-81807.herokuapp.com/ 
 
-##License
+## License
 
 MIT License
  
