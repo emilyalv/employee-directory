@@ -48,9 +48,9 @@ export default function BasicTable() {
     setOriginal(savedList);
   }
 
-  function clear() {
-    setUsers(original);
-  }
+  // function clear() {
+  //   setUsers(original);
+  // }
 
   
  
