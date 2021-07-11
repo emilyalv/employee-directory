@@ -22,6 +22,7 @@ export default function BasicTable() {
 
 //hooks
   const [ users,setUsers ] = useState([]);
+  const [ original, setOriginal] = useState ([]);
   const [ userEntry,setUserEntry ] = useState('');
 
 //get employee data & add to array
@@ -35,15 +36,26 @@ export default function BasicTable() {
       }
     }
     getUsers();
-    console.log(users)
   }, [])
 
   function search() {
+    const savedList = users
     const filteredList = users.filter(user => {
       return user.location.city.includes(userEntry);
     })
-    console.log(filteredList)
+    // console.log(filteredList);
+    setUsers(filteredList);
+    setOriginal(savedList);
   }
+
+  function clear() {
+    setUsers(original);
+  }
+
+  
+ 
+
+
 
   return (
     <>
@@ -53,7 +65,7 @@ export default function BasicTable() {
         <TableHead>
           <TableRow>
             <TableCell></TableCell>
-            <TableCell>Employee Name</TableCell>
+            <TableCell align="right">Employee Name</TableCell>
             <TableCell align="right">Email</TableCell>
             <TableCell align="right">Phone</TableCell>
             <TableCell align="right">City</TableCell>
@@ -62,7 +74,7 @@ export default function BasicTable() {
         <TableBody>
           {users.map((user) => (
             <TableRow key={user.email}>
-             <TableCell align="right"><img src={user.picture.thumbnail} /></TableCell>  
+             <TableCell align="center"><img src={user.picture.thumbnail} /></TableCell>  
               <TableCell align="right">{user.name.first} {user.name.last}</TableCell>
               <TableCell align="right">{user.email}</TableCell>
               <TableCell align="right">{user.phone}</TableCell>

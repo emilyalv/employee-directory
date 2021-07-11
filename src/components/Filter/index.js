@@ -17,8 +17,9 @@ export default function Filter(props) {
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="filled-basic" label="Filled" variant="filled" onChange={(e) => props.setUserEntry(e.target.value)}/>
+      <TextField id="outlined-basic" label="Filter by City" variant="outlined" onChange={(e) => props.setUserEntry(e.target.value)}/><br/>
       <Button variant="contained" color="primary" onClick={props.search}>Filter</Button>
+      <Button id="clearBtn" variant="contained" color="primary" onClick={props.clear}>Clear Filter</Button>
     </form>
   );
 }
