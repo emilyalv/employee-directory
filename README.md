@@ -13,7 +13,7 @@ This app leverages ```react```, ```materialui```, and ```axios```. It calls ```r
 
 
 ## Deployed Application
-https://morning-earth-81807.herokuapp.com/ 
+https://emilyalv.github.io/employee-directory/ 
 
 ## License
 
