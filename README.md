@@ -1,7 +1,5 @@
 # employee-directory
 
-##Table of Contents
-
 ##Installation
 ```npm i``` to install all dependencies. 
 
